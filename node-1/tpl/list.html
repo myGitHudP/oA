@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr><th>编号</th><th>类别</th></tr>
+			<% if (rows.length) { %>  
+    
+          <% rows.forEach(function(row){ %>  
+               <tr >
+               	<td><%= row.id %></td>
+               	<td><%= row.name %></td>
+               </tr>  
+            <% }) %>  
+ 
+          <% } %> 
+		</table>
+		<a href="http://127.0.0.1:112/add">增加新闻类别</a>
+	</body>
+</html>
