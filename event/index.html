@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<style>
+			.s{
+				color: yellow;
+			}
+			div{
+				width: 200px;
+				height:200px;
+				border: 1px solid#ccc;
+			}
+		</style>
+	</head>
+	<body>
+	   <a class="k">☆</a>
+	   <a class="k">☆</a>
+	   <a class="k">☆</a>
+	   <a class="k">☆</a>
+	   <a class="k">☆</a>
+	   <span class="content"></span>
+	   <div>
+	   	
+	   </div>
+	 
+	</body>
+		<script type="text/javascript">
+			
+		
+		   function show(num){
+			 
+			  switch(num){
+				        	case 1:
+				             c.innerHTML="很差";
+				        	break;
+				        	case 2:
+				        	c.innerHTML="一般";
+				        	break;
+				        	case 3:
+				        	c.innerHTML="不错";
+				        	break;
+				        	case 4:
+				        	c.innerHTML="很好";
+				        	break;
+				        	case 5:
+				        	c.innerHTML="非常好";
+				        	break;
+				        
+				        	
+				        }
+			
+		}
+			var a=document.getElementsByTagName('a');
+			var n=0;
+			var c=document.getElementsByTagName('span')[0];
+			var cl='';
+			for(var i=0;a[i];i++){
+				  a[i].index = i;
+				a[i].onmouseover=function(){
+					var next=this.index+1;
+					var prev=this.index-1;
+					console.log(prev+':'+next)
+				 
+					if(this.className=="k"){
+						if(prev<0){	
+						this.innerHTML="★";
+						this.className='s';
+						n++;
+						show(n);
+							
+						}else if(a[prev].className=='s'){
+						this.innerHTML="★";
+						this.className='s';
+						n++;
+						show(n);
+						}
+					
+				      
+					}else{
+						if(next>4){
+					        this.innerHTML="☆";
+						    this.className='k';
+					        n--;
+					 	  show(n);
+						}else if(a[next].className=='k'){
+							this.innerHTML="☆";
+						    this.className='k';
+						     n--;
+					 	    show(n);
+						}
+					
+					}
+				}
+			}
+			
+		
+			var oDiv1=document.getElementsByTagName('div')[0];
+			oDiv1.onmousemove=function(){
+				console.log('X:'+window.event.screenX+'   Y:'+window.event.screenY);
+				console.log('X1:'+window.event.clientX+'   Y1:'+window.event.clientY);
+				console.log('X2:'+window.event.offsetX+'   Y2:'+window.event.offsetY);
+			}
+	
+		</script>
+</html>
